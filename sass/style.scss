@@ -1,0 +1,99 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Mixin para centrar elementos horizontal y verticalmente
+@mixin center-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
+  transition: $property $duration $timing-function;
+}
+
+@mixin linear-gradient($color1, $color2) {
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+@function container-width($columns, $column-width: 300px, $gutter-width: 20px) {
+  @return $columns * $column-width + ($columns - 1) * $gutter-width;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  background-color: $secondary-color;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+main {
+  width: container-width(2);
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #9eb4cc;
+
+  .content {
+    margin-bottom: 20px;
+  }
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+
+  .social-links {
+    margin-top: 10px;
+
+    a {
+      color: white (175, 41, 41);
+      margin-right: 10px;
+    }
+  }
+}
